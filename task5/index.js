@@ -18,6 +18,14 @@ function getTasks() {
   return tasks;
 }
 
+function inOrder(tasks) {
+  console.log(`We have ${tasks.length} tasks!`);
+  let promise = Promise.resolve();
+  tasks.forEach(task => {
+    promise = promise.then(() => task());
+  });
+}
+
 inOrder(getTasks());
 
 // We have n tasks!
