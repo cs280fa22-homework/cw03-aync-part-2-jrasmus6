@@ -1,13 +1,25 @@
 function task1() {
-  setTimeout(() => {
-    console.log("Task 1!");
-  }, Math.random() * 1000);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Task 1");
+      resolve();
+    }, Math.random() * 1000);
+  })
 }
 
 function task2() {
-  setTimeout(() => {
-    console.log("Task 2!");
-  }, Math.random() * 1000);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Task 2");
+      resolve();
+    }, Math.random() * 1000);
+  })
+}
+
+function inOrder(fn1, fn2) {
+  fn1()
+    .then(() => { fn2() })
+    .catch((err) => console.log(err.message));
 }
 
 inOrder(task1, task2);

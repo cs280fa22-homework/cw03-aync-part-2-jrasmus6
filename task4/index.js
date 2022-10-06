@@ -18,6 +18,13 @@ function getTasks() {
   return tasks;
 }
 
+async function inOrder(tasks) {
+  console.log(`We have ${tasks.length} tasks!`);
+  for (const task of tasks) {
+    await task();
+  }
+}
+
 inOrder(getTasks());
 
 // We have n tasks!

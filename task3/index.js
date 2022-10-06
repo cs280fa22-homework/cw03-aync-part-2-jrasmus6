@@ -10,6 +10,11 @@ function task2() {
   }, Math.random() * 1000);
 }
 
+async function inOrder(task1, task2) {
+  await task1();
+  await task2();
+}
+
 inOrder(task1, task2);
 
 // Task 1!
